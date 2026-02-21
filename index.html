@@ -202,3 +202,60 @@ animate();
 
 </body>
 </html>
+<script>
+const canvas = document.getElementById("sakura");
+const ctx = canvas.getContext("2d");
+
+let petals = [];
+let petalSpeed = 1; // default speed
+
+function resize(){
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+function createPetal(){
+  return {
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 3 + 2,
+    s: Math.random() * 0.5 + 0.5,
+    drift: Math.random() * 1 - 0.5
+  };
+}
+
+// petals count
+for(let i=0;i<30;i++){
+  petals.push(createPetal());
+}
+
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = "rgba(255,182,193,0.8)";
+
+  petals.forEach(p=>{
+    ctx.beginPath();
+    ctx.ellipse(p.x,p.y,p.r,p.r*0.6,0,0,Math.PI*2);
+    ctx.fill();
+
+    p.y += p.s * petalSpeed;
+    p.x += p.drift;
+
+    if(p.y > canvas.height){
+      p.y = -10;
+      p.x = Math.random() * canvas.width;
+    }
+  });
+
+  requestAnimationFrame(draw);
+}
+draw();
+
+/* 🔥 CMD / Console speed control */
+window.setPetalSpeed = function(v){
+  petalSpeed = v;
+  console.log("Petal speed set to:", v);
+}
+</script>
