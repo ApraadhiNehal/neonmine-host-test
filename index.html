@@ -1,261 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NeonMine Hosting</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeonMine Hosting</title>
+
+<style>
+/* ===== GLOBAL ===== */
+:root{
+  --petal-speed: 12s; /* 👈 speed control (8s fast, 15s slow) */
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+    url("bg.jpg") center/cover no-repeat fixed;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* ===== CHERRY BLOSSOM ===== */
+.sakura{
+  position:fixed;
+  top:-10%;
+  width:100%;
+  height:110%;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.petal{
+  position:absolute;
+  top:-10%;
+  width:14px;
+  height:14px;
+  background:radial-gradient(circle, #ffd6e7 40%, #ff9fcf 70%);
+  border-radius:50% 50% 50% 0;
+  transform:rotate(45deg);
+  opacity:.9;
+  animation:fall var(--petal-speed) linear infinite;
+}
+
+@keyframes fall{
+  0%{
+    transform:translateY(0) rotate(0deg);
+    opacity:1;
+  }
+  100%{
+    transform:translateY(120vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* random positions */
+.petal:nth-child(1){ left:5%; animation-delay:0s;}
+.petal:nth-child(2){ left:15%; animation-delay:2s;}
+.petal:nth-child(3){ left:30%; animation-delay:4s;}
+.petal:nth-child(4){ left:45%; animation-delay:1s;}
+.petal:nth-child(5){ left:60%; animation-delay:3s;}
+.petal:nth-child(6){ left:75%; animation-delay:5s;}
+.petal:nth-child(7){ left:90%; animation-delay:6s;}
+
+/* ===== HEADER ===== */
+header{
+  text-align:center;
+  padding:60px 20px 30px;
+}
+
+header h1{
+  font-size:2.2rem;
+  color:#ffb7d5;
+}
+
+header p{
+  opacity:.9;
+  margin-top:10px;
+}
+
+/* ===== PLANS ===== */
+.plans{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  padding:30px 15px 60px;
+}
+
+.plan{
+  background:rgba(0,0,0,.6);
+  border:1px solid rgba(255,183,213,.4);
+  backdrop-filter:blur(6px);
+  border-radius:14px;
+  padding:22px;
+  width:280px;
+  text-align:center;
+  transition:.3s;
+}
+
+.plan:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 20px rgba(255,183,213,.4);
+}
+
+.plan h2{
+  color:#ffb7d5;
+  margin-bottom:10px;
+}
+
+.plan p{
+  font-size:.95rem;
+  opacity:.9;
+  margin:6px 0;
+}
+
+.price{
+  margin-top:12px;
+  font-size:1.2rem;
+  color:#ffd6e7;
+  font-weight:bold;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:600px){
+  header h1{ font-size:1.8rem; }
+  .plan{ width:100%; max-width:320px; }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Plans Section -->
-<section class="plans-section">
-  <canvas id="sakura"></canvas>
-
-  <div class="plans-content">
-    <!-- YAHAN tumhare Budget / Power / Limited cards rahenge -->
-  </div>
-</section>
-  
-<!-- 🌸 Cherry Blossom Canvas -->
-<canvas id="sakura"></canvas>
-
-<!-- 🎚️ Speed Control -->
-
-
-<div class="page">
-  <div class="container">
-
-    <!-- HEADER -->
-    <header>
-      <img src="logo.png" alt="NeonMine Logo">
-      <h1>NeonMine Hosting</h1>
-      <p>Affordable, powerful and stable Minecraft hosting with instant setup and DDoS protection.</p>
-    </header>
-
-    <!-- TABS -->
-    <div class="tabs">
-      <button class="tab-btn active" onclick="openTab(event,'budget')">Budget Plans</button>
-      <button class="tab-btn" onclick="openTab(event,'power')">Power Plans</button>
-      <button class="tab-btn" onclick="openTab(event,'offer')">Limited Offer</button>
-    </div>
-
-    <!-- BUDGET PLANS -->
-    <div id="budget" class="section active">
-
-      <div class="card">
-        <h3>Dirt Plan</h3>
-        <p>RAM: 4GB</p>
-        <p>CPU: 100%</p>
-        <p>Storage: 10GB SSD</p>
-        <p>Players: 10–15</p>
-        <p>Best for: Friends SMP</p>
-        <div class="price">₹70 / month</div>
-        <button class="order-btn">Order Now</button>
-      </div>
-
-      <div class="card">
-        <h3>Stone Plan</h3>
-        <p>RAM: 6GB</p>
-        <p>CPU: 150%</p>
-        <p>Storage: 15GB SSD</p>
-        <p>Players: 20–25</p>
-        <p>Best for: Plugin Servers</p>
-        <div class="price">₹130 / month</div>
-        <button class="order-btn">Order Now</button>
-      </div>
-
-      <div class="card">
-        <h3>Iron Plan</h3>
-        <p>RAM: 8GB</p>
-        <p>CPU: 200%</p>
-        <p>Storage: 20GB SSD</p>
-        <p>Players: 25–30</p>
-        <p>Best for: Semi-Modded</p>
-        <div class="price">₹180 / month</div>
-        <button class="order-btn">Order Now</button>
-      </div>
-
-      <div class="card">
-        <h3>Gold Plan</h3>
-        <p>RAM: 12GB</p>
-        <p>CPU: 250%</p>
-        <p>Storage: 30GB SSD</p>
-        <p>Players: 35–40</p>
-        <p>Best for: Large SMP</p>
-        <div class="price">₹270 / month</div>
-        <button class="order-btn">Order Now</button>
-      </div>
-
-      <div class="card">
-        <h3>Diamond Plan</h3>
-        <p>RAM: 16GB</p>
-        <p>CPU: 300%</p>
-        <p>Storage: 40GB SSD</p>
-        <p>Players: 50–60</p>
-        <p>Best for: Large SMP</p>
-        <div class="price">₹350 / month</div>
-        <button class="order-btn">Order Now</button>
-      </div>
-
-      <div class="card">
-        <h3>Netherite Plan</h3>
-        <p>RAM: 24GB</p>
-        <p>CPU: 400%</p>
-        <p>Storage: 50GB SSD</p>
-        <p>Players: 70–80</p>
-        <p>Best for: Large SMP</p>
-        <div class="price">₹500 / month</div>
-        <button class="order-btn">Order Now</button>
-      </div>
-
-    </div>
-
-    <!-- POWER -->
-    <div id="power" class="section">
-      <div class="coming">🚧 Coming Soon 🚧</div>
-    </div>
-
-    <!-- OFFER -->
-    <div id="offer" class="section">
-      <div class="card offer">
-        <h3>IRON PLAN – SPECIAL OFFER</h3>
-        <p>RAM: 12GB DDR4</p>
-        <p>Storage: 40GB NVMe</p>
-        <p>CPU: 250%</p>
-        <p>Cloud Backups: 2×</p>
-        <p>DDoS Protection</p>
-        <p>Fast Setup</p>
-        <div class="price">₹270 ❌ → ₹230 / month</div>
-        <button class="order-btn">Order Now</button>
-      </div>
-    </div>
-
-    <footer>
-      © 2026 NeonMine Hosting • Powered by GitHub Pages
-    </footer>
-
-  </div>
+<!-- 🌸 Cherry Blossom -->
+<div class="sakura">
+  <span class="petal"></span>
+  <span class="petal"></span>
+  <span class="petal"></span>
+  <span class="petal"></span>
+  <span class="petal"></span>
+  <span class="petal"></span>
+  <span class="petal"></span>
 </div>
 
-<!-- 🔧 TAB SCRIPT -->
-<script>
-function openTab(evt,id){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  evt.target.classList.add('active');
-}
-</script>
+<header>
+  <h1>NeonMine Hosting</h1>
+  <p>Affordable • Powerful • Stable Minecraft Servers</p>
+</header>
 
-<!-- 🌸 CHERRY BLOSSOM SCRIPT -->
-<script>
-const canvas = document.getElementById("sakura");
-const ctx = canvas.getContext("2d");
-const speedRange = document.getElementById("speedRange");
+<section class="plans">
 
-let w,h;
-function resize(){
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener("resize", resize);
+  <div class="plan">
+    <h2>Dirt Plan</h2>
+    <p>RAM: 4GB</p>
+    <p>CPU: 100%</p>
+    <p>Storage: 10GB SSD</p>
+    <p>Players: 10–15</p>
+    <div class="price">₹70 / month</div>
+  </div>
 
-let speedMul = 1;
-speedRange.oninput = () => speedMul = speedRange.value;
+  <div class="plan">
+    <h2>Stone Plan</h2>
+    <p>RAM: 6GB</p>
+    <p>CPU: 150%</p>
+    <p>Storage: 15GB SSD</p>
+    <p>Players: 20–25</p>
+    <div class="price">₹130 / month</div>
+  </div>
 
-const petals = [];
-for(let i=0;i<40;i++){
-  petals.push({
-    x: Math.random()*w,
-    y: Math.random()*h,
-    r: Math.random()*4+2,
-    s: Math.random()*1.2+0.4,
-    d: Math.random()*2
-  });
-}
+  <div class="plan">
+    <h2>Iron Plan</h2>
+    <p>RAM: 8GB</p>
+    <p>CPU: 200%</p>
+    <p>Storage: 20GB SSD</p>
+    <p>Players: 30+</p>
+    <div class="price">₹200 / month</div>
+  </div>
 
-function animate(){
-  ctx.clearRect(0,0,w,h);
-  ctx.fillStyle="rgba(255,182,193,0.85)";
-
-  petals.forEach(p=>{
-    ctx.beginPath();
-    ctx.ellipse(p.x,p.y,p.r,p.r*0.6,Math.PI/4,0,Math.PI*2);
-    ctx.fill();
-
-    p.y += p.s * speedMul;
-    p.x += Math.sin(p.d)*0.6;
-
-    if(p.y>h){
-      p.y=-10;
-      p.x=Math.random()*w;
-    }
-  });
-
-  requestAnimationFrame(animate);
-}
-animate();
-</script>
+</section>
 
 </body>
 </html>
-<script>
-const canvas = document.getElementById("sakura");
-const ctx = canvas.getContext("2d");
-
-let petals = [];
-let petalSpeed = 1; // default speed
-
-function resize(){
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
-}
-resize();
-window.addEventListener("resize", resize);
-
-function createPetal(){
-  return {
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 3 + 2,
-    s: Math.random() * 0.5 + 0.5,
-    drift: Math.random() * 1 - 0.5
-  };
-}
-
-// petals count
-for(let i=0;i<30;i++){
-  petals.push(createPetal());
-}
-
-function draw(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle = "rgba(255,182,193,0.8)";
-
-  petals.forEach(p=>{
-    ctx.beginPath();
-    ctx.ellipse(p.x,p.y,p.r,p.r*0.6,0,0,Math.PI*2);
-    ctx.fill();
-
-    p.y += p.s * petalSpeed;
-    p.x += p.drift;
-
-    if(p.y > canvas.height){
-      p.y = -10;
-      p.x = Math.random() * canvas.width;
-    }
-  });
-
-  requestAnimationFrame(draw);
-}
-draw();
-
-/* 🔥 CMD / Console speed control */
-window.setPetalSpeed = function(v){
-  petalSpeed = v;
-  console.log("Petal speed set to:", v);
-}
-</script>
