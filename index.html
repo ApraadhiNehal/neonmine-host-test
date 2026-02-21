@@ -9,6 +9,15 @@
 
 <body>
 
+<!-- 🌸 Cherry Blossom Canvas -->
+<canvas id="sakura"></canvas>
+
+<!-- 🎚️ Speed Control -->
+<div class="speed-control">
+  <label>Petal Speed</label>
+  <input type="range" min="0.3" max="3" step="0.1" value="1" id="speedRange">
+</div>
+
 <div class="page">
   <div class="container">
 
@@ -16,14 +25,14 @@
     <header>
       <img src="logo.png" alt="NeonMine Logo">
       <h1>NeonMine Hosting</h1>
-      <p>High-performance and reliable Minecraft hosting with instant setup and DDoS protection.</p>
+      <p>Affordable, powerful and stable Minecraft hosting with instant setup and DDoS protection.</p>
     </header>
 
     <!-- TABS -->
     <div class="tabs">
-      <button class="tab-btn active" onclick="openTab('budget')">Budget Plans</button>
-      <button class="tab-btn" onclick="openTab('power')">Power Plans</button>
-      <button class="tab-btn" onclick="openTab('offer')">Limited Offer</button>
+      <button class="tab-btn active" onclick="openTab(event,'budget')">Budget Plans</button>
+      <button class="tab-btn" onclick="openTab(event,'power')">Power Plans</button>
+      <button class="tab-btn" onclick="openTab(event,'offer')">Limited Offer</button>
     </div>
 
     <!-- BUDGET PLANS -->
@@ -124,13 +133,65 @@
   </div>
 </div>
 
+<!-- 🔧 TAB SCRIPT -->
 <script>
-function openTab(id){
+function openTab(evt,id){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  event.target.classList.add('active');
+  evt.target.classList.add('active');
 }
+</script>
+
+<!-- 🌸 CHERRY BLOSSOM SCRIPT -->
+<script>
+const canvas = document.getElementById("sakura");
+const ctx = canvas.getContext("2d");
+const speedRange = document.getElementById("speedRange");
+
+let w,h;
+function resize(){
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+let speedMul = 1;
+speedRange.oninput = () => speedMul = speedRange.value;
+
+const petals = [];
+for(let i=0;i<40;i++){
+  petals.push({
+    x: Math.random()*w,
+    y: Math.random()*h,
+    r: Math.random()*4+2,
+    s: Math.random()*1.2+0.4,
+    d: Math.random()*2
+  });
+}
+
+function animate(){
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle="rgba(255,182,193,0.85)";
+
+  petals.forEach(p=>{
+    ctx.beginPath();
+    ctx.ellipse(p.x,p.y,p.r,p.r*0.6,Math.PI/4,0,Math.PI*2);
+    ctx.fill();
+
+    p.y += p.s * speedMul;
+    p.x += Math.sin(p.d)*0.6;
+
+    if(p.y>h){
+      p.y=-10;
+      p.x=Math.random()*w;
+    }
+  });
+
+  requestAnimationFrame(animate);
+}
+animate();
 </script>
 
 </body>
