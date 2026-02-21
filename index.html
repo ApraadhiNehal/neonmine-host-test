@@ -7,23 +7,27 @@
 </head>
 <body>
 
-<!-- 🌸 Cherry Background -->
 <div class="cherry-bg"></div>
 
-<!-- ===== HEADER ===== -->
+<!-- HEADER -->
 <header class="hero">
-  <img src="logo.png" alt="NeonMine Logo" class="logo">
+  <img src="logo.png" class="logo">
   <h1>NeonMine Hosting</h1>
   <p class="tagline">
-    Reliable, high-performance Minecraft hosting with stable servers,
-    instant setup and trusted uptime for every type of SMP.
+    Reliable and high-performance Minecraft hosting with instant setup
+    and stable servers for every SMP.
   </p>
 </header>
 
-<!-- ===== SECTION 1 : BUDGET PLANS ===== -->
-<section class="section">
-  <h2>Budget Plans</h2>
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="openTab('budget')">Budget Plans</button>
+  <button class="tab-btn" onclick="openTab('power')">Power Plans</button>
+  <button class="tab-btn" onclick="openTab('offer')">Limited Offer</button>
+</div>
 
+<!-- ================= BUDGET ================= -->
+<section id="budget" class="section active">
   <div class="plans">
 
     <div class="card">
@@ -43,7 +47,7 @@
       <p>CPU: 150%</p>
       <p>Storage: 15GB SSD</p>
       <p>Players: 20-25</p>
-      <p>Best for: Plugin servers</p>
+      <p>Best for: Plugin Servers</p>
       <p class="price">₹130 / month</p>
       <a href="#" class="btn">Order Now</a>
     </div>
@@ -54,7 +58,7 @@
       <p>CPU: 200%</p>
       <p>Storage: 20GB SSD</p>
       <p>Players: 25-30</p>
-      <p>Best for: Semi-modded</p>
+      <p>Best for: Semi-Modded</p>
       <p class="price">₹180 / month</p>
       <a href="#" class="btn">Order Now</a>
     </div>
@@ -95,16 +99,13 @@
   </div>
 </section>
 
-<!-- ===== SECTION 2 : POWER PLAN ===== -->
-<section class="section">
-  <h2>Power Plans</h2>
+<!-- ================= POWER ================= -->
+<section id="power" class="section">
   <p class="coming">Coming Soon</p>
 </section>
 
-<!-- ===== SECTION 3 : LIMITED OFFER ===== -->
-<section class="section">
-  <h2>Limited Offer</h2>
-
+<!-- ================= OFFER ================= -->
+<section id="offer" class="section">
   <div class="card highlight">
     <h3>IRON PLAN – SPECIAL OFFER</h3>
     <p>RAM: 12GB DDR4</p>
@@ -121,13 +122,20 @@
       <li>0 / 1 Slot Left</li>
     </ul>
 
-    <p class="price">
-      <span class="cut">₹270</span> ₹230 / month
-    </p>
-
+    <p class="price"><span class="cut">₹270</span> ₹230 / month</p>
     <a href="#" class="btn">Order Now</a>
   </div>
 </section>
 
+<!-- SCRIPT -->
+<script>
+function openTab(tab){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(tab).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+
 </body>
-</html>
+  </html>
