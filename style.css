@@ -2,81 +2,153 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
   background:#0d0d0d;
   color:#fff;
   text-align:center;
+  overflow-x:hidden;
 }
 
-/* Cherry Theme */
+/* 🌸 Cherry Theme Background */
 .cherry-bg{
   position:fixed;
   inset:0;
   background:
-    radial-gradient(circle,#ffb7c5 1px,transparent 2px);
-  background-size:80px 80px;
+    radial-gradient(circle at 20% 20%, #ffb7c5 1px, transparent 2px),
+    radial-gradient(circle at 70% 40%, #ffc0cb 1px, transparent 2px),
+    radial-gradient(circle at 40% 80%, #ffb7c5 1px, transparent 2px);
+  background-size:90px 90px;
   opacity:0.18;
   z-index:-1;
 }
 
-/* Header */
+/* ===== HEADER ===== */
 .hero{
-  padding:40px 20px;
+  padding:30px 15px;
 }
-.logo{ width:120px; margin-bottom:15px; }
-.hero h1{ color:#ffd200; font-size:36px; }
-.tagline{ max-width:700px; margin:10px auto; color:#ccc; }
+.logo{
+  width:100px;
+  margin-bottom:12px;
+}
+.hero h1{
+  font-size:28px;
+  color:#ffd200;
+}
+.tagline{
+  font-size:14px;
+  max-width:90%;
+  margin:10px auto 0;
+  color:#ccc;
+  line-height:1.5;
+}
 
-/* Accordion */
+/* ===== ACCORDION WRAPPER ===== */
 .accordion{
-  max-width:700px;
-  margin:0 auto 50px;
+  max-width:100%;
+  padding:0 12px 40px;
 }
 
+/* ===== SECTION BUTTONS ===== */
 .acc-btn{
   width:100%;
-  padding:15px;
-  background:#222;
+  padding:14px;
+  margin-top:15px;
+  background:#1e1e1e;
   color:#ffd200;
   border:none;
-  text-align:center;
-  font-size:20px;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
   cursor:pointer;
-  border-radius:12px;
-  margin-top:15px;
 }
 
+/* ===== ACCORDION CONTENT ===== */
 .acc-content{
   overflow:hidden;
   max-height:0;
-  transition:0.4s ease;
+  transition:max-height 0.4s ease;
+  display:flex;
+  flex-direction:column;
+  align-items:center;     /* 👈 CENTER FIX */
 }
 
-/* Cards */
+/* ===== PLAN CARD ===== */
 .card{
   background:#111;
-  padding:20px;
-  border-radius:15px;
-  margin:15px;
+  width:100%;
+  max-width:380px;        /* 👈 Mobile friendly */
+  margin:14px auto;
+  padding:18px;
+  border-radius:16px;
+  box-shadow:0 0 15px rgba(0,0,0,0.7);
 }
-.card h3{ color:#ffd200; }
-.price{ color:#00ff99; font-weight:bold; margin:10px 0; }
+
+.card h3{
+  color:#ffd200;
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.card p{
+  font-size:14px;
+  margin:4px 0;
+}
+
+/* ===== PRICE ===== */
+.price{
+  margin:10px 0;
+  font-size:16px;
+  font-weight:bold;
+  color:#00ff99;
+}
+
+/* ===== BUTTON ===== */
 .btn{
   display:inline-block;
-  padding:10px 22px;
+  margin-top:10px;
+  padding:10px 26px;
   background:#ffd200;
   color:#000;
-  text-decoration:none;
   border-radius:25px;
   font-weight:bold;
+  text-decoration:none;
 }
 
-.coming{ color:#aaa; font-size:22px; margin:20px; }
+/* ===== OFFER ===== */
+.highlight{
+  border:2px solid #ffd200;
+}
 
-.highlight{ border:2px solid #ffd200; }
-.features{ list-style:none; margin:10px 0; }
-.features li{ margin:5px 0; }
-.cut{ color:red; text-decoration:line-through; }
+.features{
+  list-style:none;
+  margin:12px 0;
+  padding:0;
+}
+
+.features li{
+  font-size:14px;
+  margin:5px 0;
+}
+
+.cut{
+  text-decoration:line-through;
+  color:#ff5555;
+  margin-right:6px;
+}
+
+/* ===== COMING SOON ===== */
+.coming{
+  font-size:18px;
+  color:#aaa;
+  margin:20px 0;
+}
+
+/* ===== DESKTOP ENHANCEMENT ===== */
+@media (min-width:768px){
+  .hero h1{ font-size:36px; }
+  .logo{ width:120px; }
+  .card{ max-width:420px; }
+}
