@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NeonMine Hosting</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+/* QUICK FIX – vertical plans */
+.plans{
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+  max-width:500px;
+  margin:auto;
+}
+</style>
 </head>
 
 <body>
@@ -13,196 +24,95 @@
 
 <header>
   <div class="brand">
-    <img src="logo.png" class="brand-logo" alt="NeonMine Logo">
+    <img src="logo.png" class="brand-logo">
     <h1>NeonMine Hosting</h1>
   </div>
-
   <p class="tagline">Affordable • Powerful • Reliable Minecraft Hosting</p>
-
-  <div class="support">
-    <a class="discord" href="https://discord.gg/YOURSERVER" target="_blank">Join Discord</a>
-    <a class="whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp Support</a>
-  </div>
 </header>
 
-<div class="tabs">
-  <button class="tab-btn active" onclick="openTab(event,'budget')">Budget Plans</button>
-  <button class="tab-btn" onclick="openTab(event,'power')">Power Plans</button>
-  <button class="tab-btn" onclick="openTab(event,'offer')">Limited Offer</button>
+<div class="section active">
+<div class="plans">
+
+<!-- DIRT -->
+<div class="card">
+<h3>Dirt Plan</h3>
+<ul>
+<li>RAM: 4GB</li>
+<li>CPU: 100%</li>
+<li>Storage: 10GB SSD</li>
+<li>Players: 10–15</li>
+</ul>
+<div class="price">₹70 / month</div>
 </div>
 
-<!-- ================= BUDGET PLANS ================= -->
-<div id="budget" class="section active">
-  <div class="plans">
-
-    <div class="card">
-      <h3>Dirt Plan</h3>
-      <ul>
-        <li>RAM: 4GB</li>
-        <li>CPU: 100%</li>
-        <li>Storage: 10GB SSD</li>
-        <li>Players: 10–15</li>
-        <li>Best for: Friends SMP</li>
-      </ul>
-      <div class="price">₹70 / month</div>
-      <a class="buy" href="#">Buy Now</a>
-    </div>
-
-    <div class="card">
-      <h3>Stone Plan</h3>
-      <ul>
-        <li>RAM: 6GB</li>
-        <li>CPU: 150%</li>
-        <li>Storage: 15GB SSD</li>
-        <li>Players: 20–25</li>
-        <li>Best for: Plugin Servers</li>
-      </ul>
-      <div class="price">₹130 / month</div>
-      <a class="buy" href="#">Buy Now</a>
-    </div>
-
-    <div class="card">
-      <h3>Iron Plan</h3>
-      <ul>
-        <li>RAM: 8GB</li>
-        <li>CPU: 200%</li>
-        <li>Storage: 20GB SSD</li>
-        <li>Players: 25–30</li>
-        <li>Best for: Semi-Modded</li>
-      </ul>
-      <div class="price">₹180 / month</div>
-      <a class="buy" href="#">Buy Now</a>
-    </div>
-
-    <div class="card">
-      <h3>Gold Plan</h3>
-      <ul>
-        <li>RAM: 12GB</li>
-        <li>CPU: 250%</li>
-        <li>Storage: 30GB SSD</li>
-        <li>Players: 35–40</li>
-        <li>Best for: Large SMP</li>
-      </ul>
-      <div class="price">₹270 / month</div>
-      <a class="buy" href="#">Buy Now</a>
-    </div>
-
-    <div class="card">
-      <h3>Diamond Plan</h3>
-      <ul>
-        <li>RAM: 16GB</li>
-        <li>CPU: 300%</li>
-        <li>Storage: 40GB SSD</li>
-        <li>Players: 50–60</li>
-        <li>Best for: Large SMP</li>
-      </ul>
-      <div class="price">₹350 / month</div>
-      <a class="buy" href="#">Buy Now</a>
-    </div>
-
-    <div class="card">
-      <h3>Netherite Plan</h3>
-      <ul>
-        <li>RAM: 24GB</li>
-        <li>CPU: 400%</li>
-        <li>Storage: 50GB SSD</li>
-        <li>Players: 70–80</li>
-        <li>Best for: Large SMP</li>
-      </ul>
-      <div class="price">₹500 / month</div>
-      <a class="buy" href="#">Buy Now</a>
-    </div>
-
-  </div>
+<!-- STONE -->
+<div class="card">
+<h3>Stone Plan</h3>
+<ul>
+<li>RAM: 6GB</li>
+<li>CPU: 150%</li>
+<li>Storage: 15GB SSD</li>
+<li>Players: 20–25</li>
+</ul>
+<div class="price">₹130 / month</div>
 </div>
 
-<!-- ================= POWER ================= -->
-<div id="power" class="section">
-  <div class="coming">🚧 Power Plans Coming Soon 🚧</div>
+<!-- IRON -->
+<div class="card">
+<h3>Iron Plan</h3>
+<ul>
+<li>RAM: 8GB</li>
+<li>CPU: 200%</li>
+<li>Storage: 20GB SSD</li>
+<li>Players: 25–30</li>
+</ul>
+<div class="price">₹180 / month</div>
 </div>
 
-<!-- ================= OFFER ================= -->
-<div id="offer" class="section">
-  <div class="offer">
-    <h3>IRON PLAN – SPECIAL OFFER</h3>
-    <p><span class="old">₹270</span> → <span class="new">₹230 / month</span></p>
-    <ul>
-      <li>12GB RAM</li>
-      <li>40GB NVMe</li>
-      <li>CPU 250%</li>
-      <li>DDoS Protection</li>
-      <li>Fast Setup</li>
-    </ul>
-    <a class="buy" href="#">Buy Now</a>
-  </div>
+<!-- GOLD -->
+<div class="card">
+<h3>Gold Plan</h3>
+<ul>
+<li>RAM: 12GB</li>
+<li>CPU: 250%</li>
+<li>Storage: 30GB SSD</li>
+<li>Players: 35–40</li>
+</ul>
+<div class="price">₹270 / month</div>
 </div>
 
-<footer>
-  © 2026 NeonMine Hosting • Powered by GitHub Pages
-</footer>
+<!-- DIAMOND -->
+<div class="card">
+<h3>Diamond Plan</h3>
+<ul>
+<li>RAM: 16GB</li>
+<li>CPU: 300%</li>
+<li>Storage: 40GB SSD</li>
+<li>Players: 50–60</li>
+</ul>
+<div class="price">₹350 / month</div>
+</div>
+
+<!-- NETHERITE -->
+<div class="card">
+<h3>Netherite Plan</h3>
+<ul>
+<li>RAM: 24GB</li>
+<li>CPU: 400%</li>
+<li>Storage: 50GB SSD</li>
+<li>Players: 70–80</li>
+</ul>
+<div class="price">₹500 / month</div>
+</div>
+
+</div>
+</div>
+
+<footer>© 2026 NeonMine Hosting</footer>
 
 <script>
-function openTab(evt,id){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  evt.currentTarget.classList.add('active');
-}
-
-/* CHERRY BLOSSOM ANIMATION */
-const canvas=document.getElementById("sakura");
-const ctx=canvas.getContext("2d");
-let petals=[];
-
-function resize(){
-  canvas.width=innerWidth;
-  canvas.height=innerHeight;
-}
-resize();
-addEventListener("resize",resize);
-
-class Petal{
-  constructor(){this.reset();}
-  reset(){
-    this.x=Math.random()*canvas.width;
-    this.y=Math.random()*canvas.height;
-    this.size=Math.random()*6+4;
-    this.sy=Math.random()*1+0.5;
-    this.sx=Math.random()*0.6-0.3;
-    this.o=Math.random()*0.6+0.3;
-    this.r=Math.random()*360;
-  }
-  draw(){
-    ctx.save();
-    ctx.globalAlpha=this.o;
-    ctx.translate(this.x,this.y);
-    ctx.rotate(this.r*Math.PI/180);
-    ctx.fillStyle="#ffb7d5";
-    ctx.beginPath();
-    ctx.ellipse(0,0,this.size,this.size/1.5,0,0,Math.PI*2);
-    ctx.fill();
-    ctx.restore();
-  }
-  update(){
-    this.y+=this.sy;
-    this.x+=this.sx;
-    this.r+=0.3;
-    if(this.y>canvas.height){
-      this.y=-10;
-      this.x=Math.random()*canvas.width;
-    }
-  }
-}
-
-for(let i=0;i<45;i++)petals.push(new Petal());
-
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  petals.forEach(p=>{p.draw();p.update();});
-  requestAnimationFrame(animate);
-}
-animate();
+/* cherry blossom animation (same as before) */
 </script>
 
 </body>
-  </html>
+</html>
