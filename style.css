@@ -26,27 +26,7 @@ body{
   position:relative;
   z-index:1;
 }
-/* Speed Control */
-.speed-control{
-  
-}
-.speed-control label{
-  color:#ffb6c1;
-  display:block;
-  margin-bottom:4px;
-}
 
-.page{
-  display:flex;
-  justify-content:center;
-}
-
-.container{
-  width:100%;
-  max-width:420px;
-  padding:20px;
-  text-align:center;
-}
 
 /* Header */
 header img{
@@ -135,15 +115,15 @@ footer{
   font-size:12px;
   color:#777;
   }
-/* ===== PLANS SECTION FIX ===== */
+/* ===== FIX BLACK GAP ISSUE ===== */
 .plans-wrapper{
   position: relative;
   overflow: hidden;
   padding: 60px 15px;
 }
 
-/* Cherry blossom canvas */
-#sakura{
+/* canvas plans ke andar hi rahe */
+.plans-wrapper #sakura{
   position: absolute;
   top: 0;
   left: 0;
@@ -153,7 +133,7 @@ footer{
   pointer-events: none;
 }
 
-/* Plans cards upar rahein */
+/* real content upar rahe */
 .plans-content{
   position: relative;
   z-index: 2;
