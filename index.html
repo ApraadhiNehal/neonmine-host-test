@@ -3,6 +3,98 @@
   <div class="brand">
     <img src="logo.png" alt="NeonMine Logo">
     <h1>NeonMine Hosting</h1>
+    <style>
+      body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#777;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+/* 🌸 Sakura petals canvas */
+#sakura{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* Logo + Name */
+.brand{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin-top:40px;
+  position:relative;
+  z-index:2;
+}
+
+.brand img{
+  width:48px;
+  height:48px;
+}
+
+.brand h1{
+  color:#ffb6c1;
+  margin:0;
+}
+
+/* Tagline */
+.tagline{
+  color:#eee;
+  font-size:14px;
+  margin-bottom:30px;
+  position:relative;
+  z-index:2;
+}
+
+/* 🔥 PLANS SECTION */
+.plans{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:2;
+}
+
+.plan{
+  background:#222;
+  color:white;
+  padding:20px;
+  border-radius:16px;
+  width:260px;
+}
+
+.plan h3{
+  color:#ffb6c1;
+  margin-top:0;
+}
+
+.price{
+  color:#ffb6c1;
+  font-size:18px;
+  margin-top:10px;
+}
+
+/* 📱 MOBILE FIX (LINE BY LINE) */
+@media (max-width:768px){
+  .plans{
+    flex-direction:column;   /* ✅ line by line */
+    align-items:center;
+  }
+
+  .plan{
+    width:85%;
+    max-width:320px;
+  }
+        }
+    </style>
   </div>
   <p>Affordable • Powerful • Stable Minecraft Servers</p>
 </header>
@@ -136,29 +228,21 @@ header p{
 }
 </style>
 </head>
-
 <body>
 
-<!-- 🌸 Cherry Blossom -->
-<div class="sakura">
-  <span class="petal"></span>
-  <span class="petal"></span>
-  <span class="petal"></span>
-  <span class="petal"></span>
-  <span class="petal"></span>
-  <span class="petal"></span>
-  <span class="petal"></span>
+<canvas id="sakura"></canvas>
+
+<div class="brand">
+  <img src="logo.png" alt="Logo">
+  <h1>NeonMine Hosting</h1>
 </div>
 
-<header>
-  <h1>NeonMine Hosting</h1>
-  <p>Affordable • Powerful • Stable Minecraft Servers</p>
-</header>
+<p class="tagline">Affordable • Powerful • Stable Minecraft Servers</p>
 
-<section class="plans">
+<div class="plans">
 
   <div class="plan">
-    <h2>Dirt Plan</h2>
+    <h3>Dirt Plan</h3>
     <p>RAM: 4GB</p>
     <p>CPU: 100%</p>
     <p>Storage: 10GB SSD</p>
@@ -167,7 +251,7 @@ header p{
   </div>
 
   <div class="plan">
-    <h2>Stone Plan</h2>
+    <h3>Stone Plan</h3>
     <p>RAM: 6GB</p>
     <p>CPU: 150%</p>
     <p>Storage: 15GB SSD</p>
@@ -176,7 +260,7 @@ header p{
   </div>
 
   <div class="plan">
-    <h2>Iron Plan</h2>
+    <h3>Iron Plan</h3>
     <p>RAM: 8GB</p>
     <p>CPU: 200%</p>
     <p>Storage: 20GB SSD</p>
@@ -184,29 +268,7 @@ header p{
     <div class="price">₹200 / month</div>
   </div>
 
-</section>
+</div>
 
 </body>
-  
-/* Logo + Hosting Name */
-.brand{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  margin-bottom:10px;
-}
-
-.brand img{
-  width:42px;
-  height:42px;
-}
-
-/* Mobile fix */
-@media (max-width:600px){
-  .brand img{
-    width:34px;
-    height:34px;
-  }
-}
 </html>
