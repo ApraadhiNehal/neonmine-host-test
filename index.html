@@ -5,199 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NeonMine Hosting</title>
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-body{
-  background:
-    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
-    url("cherry.jpg") center/cover fixed no-repeat;
-  color:#fff;
-  text-align:center;
-}
-
-/* CHERRY BLOSSOM CANVAS */
-#sakura{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-header, .tabs, .section, footer{
-  position: relative;
-  z-index: 2;
-}
-
-/* BRAND */
-.brand{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:14px;
-}
-
-.brand-logo{
-  width:120px;
-  border-radius:14px;
-  box-shadow:0 0 30px rgba(255,204,0,0.9);
-}
-
-.brand h1{
-  font-size:3rem;
-  color:#ffcc00;
-  text-shadow:0 0 20px #ffcc00;
-}
-
-/* HEADER */
-header{
-  padding:50px 20px;
-}
-
-header p{
-  color:#aaa;
-  margin-top:10px;
-  font-size:15px;
-}
-
-/* SUPPORT */
-.support{
-  margin-top:20px;
-}
-.support a{
-  display:inline-block;
-  margin:8px;
-  padding:10px 22px;
-  border-radius:25px;
-  text-decoration:none;
-  font-size:14px;
-  font-weight:bold;
-}
-.discord{ background:#5865F2; color:#fff; }
-.whatsapp{ background:#25D366; color:#000; }
-
-/* TABS */
-.tabs{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin:35px 0;
-  flex-wrap:wrap;
-}
-.tabs button{
-  padding:12px 25px;
-  background:#111;
-  color:#fff;
-  border:1px solid #333;
-  cursor:pointer;
-  border-radius:30px;
-  transition:0.3s;
-}
-.tabs button.active,
-.tabs button:hover{
-  background:#ffcc00;
-  color:#000;
-  box-shadow:0 0 15px #ffcc00;
-}
-
-/* SECTIONS */
-.section{ display:none; padding:30px 15px; }
-.section.active{ display:block; }
-
-/* PLANS */
-.plans{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:22px;
-}
-
-.card{
-  background:rgba(15,15,15,0.95);
-  border:1px solid #333;
-  width:260px;
-  padding:22px;
-  border-radius:18px;
-  transition:0.3s;
-}
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 20px rgba(255,204,0,0.3);
-}
-.card h3{
-  color:#ffcc00;
-  margin-bottom:10px;
-}
-.card ul{
-  list-style:none;
-  font-size:14px;
-  line-height:1.6;
-}
-.price{
-  margin:12px 0;
-  font-size:18px;
-  color:#00ff99;
-  font-weight:bold;
-}
-.buy{
-  display:inline-block;
-  margin-top:10px;
-  padding:10px 20px;
-  background:#ffcc00;
-  color:#000;
-  text-decoration:none;
-  font-weight:bold;
-  border-radius:25px;
-}
-
-/* COMING */
-.coming{
-  font-size:1.8rem;
-  color:#777;
-  padding:70px;
-  border:2px dashed #333;
-  border-radius:20px;
-  max-width:600px;
-  margin:auto;
-  background:rgba(0,0,0,0.6);
-}
-
-/* OFFER */
-.offer{
-  max-width:520px;
-  margin:auto;
-  background:rgba(15,15,15,0.95);
-  border:2px solid #ff4444;
-  padding:35px;
-  border-radius:25px;
-}
-.offer h3{ color:#ff4444; }
-.old{ text-decoration:line-through; color:#aaa; }
-.new{ color:#00ff99; font-size:26px; font-weight:bold; }
-.offer ul{
-  list-style:none;
-  margin-top:18px;
-  line-height:1.8;
-  font-size:14px;
-}
-
-/* FOOTER */
-footer{
-  margin-top:60px;
-  padding:25px;
-  color:#aaa;
-  font-size:13px;
-  background:rgba(0,0,0,0.6);
-}
-</style>
+<!-- CSS FILE -->
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -210,7 +19,7 @@ footer{
     <h1>NeonMine Hosting</h1>
   </div>
 
-  <p>Affordable • Powerful • Reliable Minecraft Hosting</p>
+  <p class="tagline">Affordable • Powerful • Reliable Minecraft Hosting</p>
 
   <div class="support">
     <a class="discord" href="https://discord.gg/YOURSERVER" target="_blank">Join Discord</a>
@@ -272,36 +81,34 @@ function openTab(evt,id){
   evt.currentTarget.classList.add('active');
 }
 
-/* CHERRY BLOSSOM ANIMATION */
+/* CHERRY BLOSSOM */
 const canvas = document.getElementById("sakura");
 const ctx = canvas.getContext("2d");
-let petals = [];
+let petals=[];
 
 function resize(){
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.width=innerWidth;
+  canvas.height=innerHeight;
 }
 resize();
-window.addEventListener("resize", resize);
+addEventListener("resize",resize);
 
 class Petal{
-  constructor(){
-    this.reset();
-  }
+  constructor(){ this.reset(); }
   reset(){
-    this.x = Math.random()*canvas.width;
-    this.y = Math.random()*canvas.height;
-    this.size = Math.random()*6+4;
-    this.speedY = Math.random()*1+0.5;
-    this.speedX = Math.random()*0.6-0.3;
-    this.opacity = Math.random()*0.6+0.3;
-    this.rotate = Math.random()*360;
+    this.x=Math.random()*canvas.width;
+    this.y=Math.random()*canvas.height;
+    this.size=Math.random()*6+4;
+    this.sy=Math.random()*1+0.5;
+    this.sx=Math.random()*0.6-0.3;
+    this.o=Math.random()*0.6+0.3;
+    this.r=Math.random()*360;
   }
   draw(){
     ctx.save();
-    ctx.globalAlpha = this.opacity;
+    ctx.globalAlpha=this.o;
     ctx.translate(this.x,this.y);
-    ctx.rotate(this.rotate*Math.PI/180);
+    ctx.rotate(this.r*Math.PI/180);
     ctx.fillStyle="#ffb7d5";
     ctx.beginPath();
     ctx.ellipse(0,0,this.size,this.size/1.5,0,0,Math.PI*2);
@@ -309,24 +116,20 @@ class Petal{
     ctx.restore();
   }
   update(){
-    this.y+=this.speedY;
-    this.x+=this.speedX;
-    this.rotate+=0.3;
-    if(this.y>canvas.height){
-      this.y=-10;
-      this.x=Math.random()*canvas.width;
-    }
+    this.y+=this.sy;
+    this.x+=this.sx;
+    this.r+=0.3;
+    if(this.y>canvas.height){ this.y=-10; this.x=Math.random()*canvas.width; }
   }
 }
-
 for(let i=0;i<40;i++) petals.push(new Petal());
 
-function animate(){
+function anim(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
   petals.forEach(p=>{p.draw();p.update();});
-  requestAnimationFrame(animate);
+  requestAnimationFrame(anim);
 }
-animate();
+anim();
 </script>
 
 </body>
