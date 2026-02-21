@@ -2,31 +2,45 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
-  background:#111;
-  color:white;
+  background:#0d0d0d;
+  color:#fff;
   text-align:center;
 }
 
-/* Cherry background */
+/* Cherry Minecraft Theme */
 .cherry-bg{
   position:fixed;
   inset:0;
   background:
-    radial-gradient(circle,#ffb7c5 1px,transparent 2px);
-  background-size:70px 70px;
-  opacity:0.15;
+    radial-gradient(circle at 20% 20%, #ffb7c5 1px, transparent 2px),
+    radial-gradient(circle at 70% 40%, #ffc0cb 1px, transparent 2px),
+    radial-gradient(circle at 40% 80%, #ffb7c5 1px, transparent 2px);
+  background-size:80px 80px;
+  opacity:0.18;
   z-index:-1;
 }
 
 /* Header */
-.hero{ padding:40px 20px; }
-.logo{ width:120px; margin-bottom:15px; }
-.hero h1{ font-size:36px; color:#ffd200; }
-.tagline{ max-width:700px; margin:10px auto; color:#ccc; }
+.hero{
+  padding:40px 20px;
+}
+.logo{
+  width:120px;
+  margin-bottom:15px;
+}
+.hero h1{
+  font-size:36px;
+  color:#ffd200;
+}
+.tagline{
+  max-width:720px;
+  margin:10px auto 0;
+  color:#ccc;
+}
 
 /* Tabs */
 .tabs{
@@ -36,23 +50,29 @@ body{
   margin:20px 0;
 }
 .tab-btn{
-  padding:10px 22px;
+  padding:10px 24px;
   background:#222;
-  color:white;
+  color:#fff;
   border:none;
   border-radius:25px;
   cursor:pointer;
+  font-weight:bold;
 }
 .tab-btn.active{
   background:#ffd200;
-  color:black;
+  color:#000;
 }
 
 /* Sections */
-.section{ display:none; padding:30px 20px; }
-.section.active{ display:block; }
+.section{
+  display:none;
+  padding:30px 20px;
+}
+.section.active{
+  display:block;
+}
 
-/* Cards */
+/* Plans */
 .plans{
   display:flex;
   flex-direction:column;
@@ -60,30 +80,52 @@ body{
   gap:20px;
 }
 .card{
+  background:#111;
   width:90%;
   max-width:420px;
-  background:#000;
   padding:20px;
-  border-radius:15px;
+  border-radius:16px;
+  box-shadow:0 0 15px rgba(0,0,0,0.7);
 }
-.card h3{ color:#ffd200; margin-bottom:10px; }
-
-.price{ color:#00ff99; margin:10px 0; font-weight:bold; }
-
+.card h3{
+  color:#ffd200;
+  margin-bottom:10px;
+}
+.price{
+  margin:10px 0;
+  font-weight:bold;
+  color:#00ff99;
+}
 .btn{
   display:inline-block;
+  margin-top:10px;
   padding:10px 24px;
   background:#ffd200;
-  color:black;
+  color:#000;
   text-decoration:none;
   border-radius:25px;
   font-weight:bold;
 }
 
-.coming{ font-size:22px; color:#aaa; }
+/* Coming */
+.coming{
+  font-size:22px;
+  color:#aaa;
+}
 
 /* Offer */
-.highlight{ border:2px solid #ffd200; }
-.features{ list-style:none; margin:15px 0; }
-.features li{ margin:6px 0; }
-.cut{ color:red; text-decoration:line-through; margin-right:6px; }
+.highlight{
+  border:2px solid #ffd200;
+}
+.features{
+  list-style:none;
+  margin:15px 0;
+}
+.features li{
+  margin:6px 0;
+}
+.cut{
+  text-decoration:line-through;
+  color:#ff5555;
+  margin-right:6px;
+}
