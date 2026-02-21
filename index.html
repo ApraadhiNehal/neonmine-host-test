@@ -7,23 +7,24 @@
 </head>
 <body>
 
+<!-- Cherry Background -->
 <div class="cherry-bg"></div>
 
 <!-- HEADER -->
 <header class="hero">
-  <img src="logo.png" class="logo">
+  <img src="logo.png" alt="NeonMine Logo" class="logo">
   <h1>NeonMine Hosting</h1>
   <p class="tagline">
-    Reliable and high-performance Minecraft hosting with instant setup
-    and stable servers for every SMP.
+    High-performance and reliable Minecraft hosting with instant setup,
+    stable servers and full DDoS protection.
   </p>
 </header>
 
-<!-- TABS -->
+<!-- SECTION BUTTONS -->
 <div class="tabs">
-  <button class="tab-btn active" onclick="openTab('budget')">Budget Plans</button>
-  <button class="tab-btn" onclick="openTab('power')">Power Plans</button>
-  <button class="tab-btn" onclick="openTab('offer')">Limited Offer</button>
+  <button class="tab-btn active" onclick="openTab(event,'budget')">Budget Plans</button>
+  <button class="tab-btn" onclick="openTab(event,'power')">Power Plans</button>
+  <button class="tab-btn" onclick="openTab(event,'offer')">Limited Offer</button>
 </div>
 
 <!-- ================= BUDGET ================= -->
@@ -122,18 +123,25 @@
       <li>0 / 1 Slot Left</li>
     </ul>
 
-    <p class="price"><span class="cut">₹270</span> ₹230 / month</p>
+    <p class="price">
+      <span class="cut">₹270</span> ₹230 / month
+    </p>
+
     <a href="#" class="btn">Order Now</a>
   </div>
 </section>
 
 <!-- SCRIPT -->
 <script>
-function openTab(tab){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById(tab).classList.add('active');
-  event.target.classList.add('active');
+function openTab(evt, tabName){
+  document.querySelectorAll(".section").forEach(sec=>{
+    sec.classList.remove("active");
+  });
+  document.querySelectorAll(".tab-btn").forEach(btn=>{
+    btn.classList.remove("active");
+  });
+  document.getElementById(tabName).classList.add("active");
+  evt.currentTarget.classList.add("active");
 }
 </script>
 
